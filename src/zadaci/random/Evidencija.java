@@ -1,26 +1,28 @@
-package zadaci.polaznikHashMap;
+package zadaci.random;
+
+import zadaci.polaznikHashMap.Polaznik;
 
 import java.util.*;
 
 /*
-Napiši program za evidenciju polaznika na tečaju koji osigurava jedinstvenost e-mail adresa polaznika.
- Program treba omogućiti unos polaznika i njihovih podataka te provjeriti jesu li e-mail adrese jedinstvene.
+*
+Napiši program za evidenciju polaznika na tečaju koji osigurava jedinstvenost e-mail adresa polaznika te
+* nasumično mijenja redoslijed polaznika prije ispisa. Program treba omogućiti unos polaznika i njihovih podataka,
+*  provjeriti jesu li e-mail adrese jedinstvene te ispisati polaznike u nasumičnom redoslijedu.
 
-* Koristi klasu Polaznik s atributima: ime, prezime i e-mail
-* Koristi HashMap<String, Polaznik> za pohranu polaznika, gdje će ključ biti e-mail adresa, a vrijednost objekt klase Polaznik.
+* Koristi klasu Polaznik s atributima: ime, prezime i e-mail.
+* Koristi HashMap<String, Polaznik> za pohranu polaznika, gdje je ključ e-mail adresa, a vrijednost objekt klase Polaznik.
 * Napravi glavnu klasu EvidencijaPolaznika koja sadrži main metodu.
 * Omogući korisniku unos novih polaznika (ime, prezime, e-mail).
-* Pri dodavanju novog polaznika, provjeri je li e-mail adresa već prisutna u evidenciji polaznika.
- Ako je e-mail adresa već prisutna, ispiši odgovarajuću poruku i ne dopusti unos polaznika s istom e-mail adresom.
-* Omogući ispis svih polaznika na tečaju nakon unosa.
-
-Što bi trebalo izmijeniti u rješenju ako dodamo novi zahtjev?
-* Svi polaznici moraju biti cijelo vrijeme sortirani po emailu uzlazno
- */
+* Pri dodavanju novog polaznika, provjeri je li e-mail adresa već prisutna u evidenciji.
+* Ako je, ispiši odgovarajuću poruku i ne dopusti unos polaznika s istom e-mail adresom.
+* Nakon unosa svih polaznika, nasumično izmiješaj redoslijed polaznika prije ispisa.
+* Ispiši sve polaznike na tečaju u nasumičnom redoslijedu.
+* Isprobaj ispis nakon korištenja drugih metoda iz klase Collections*/
 public class Evidencija {
     public static void main(String[] args) {
 
-        HashMap<String,Polaznik> p = new HashMap<>();
+        HashMap<String, Polaznik> p = new HashMap<>();
 
         Scanner s = new Scanner(System.in);
         Boolean exit = false;
@@ -48,11 +50,19 @@ public class Evidencija {
     private static void IspisPolaznika(HashMap<String,Polaznik> p) {
 
         System.out.println("Lista polaznika :");
-        TreeMap<String, Polaznik> tm =new TreeMap<>();
-        tm.putAll(p);
-        for (Polaznik pol : tm.values()) {
-            System.out.println(pol);
-        }
+        List<Polaznik> polaznici = new ArrayList<>(p.values());
+        System.out.println("-".repeat(30));
+
+        System.out.println("Lista shuffle :");
+        Collections.shuffle(polaznici);
+        System.out.println(polaznici);
+        System.out.println("-".repeat(30));
+
+        System.out.println("Lista  sortirana:");
+        Collections.sort(polaznici);
+        System.out.println(polaznici);
+        System.out.println("-".repeat(30));
+
     }
 
 
@@ -94,6 +104,4 @@ public class Evidencija {
         System.out.println("-".repeat(30));
         System.out.print("Unesite izbor: ");
     }
-
 }
-
