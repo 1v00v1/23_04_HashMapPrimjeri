@@ -32,7 +32,7 @@ public class Evidencija {
             int izbor = Integer.parseInt(s.nextLine());
             switch (izbor) {
                 case 1 -> {
-                    Polaznik pol = UnosPolaznika(s,p);
+                    Polaznik pol = UnosPolaznika(s, p);
                     p.put(pol.getEmail(), pol);
                 }
 
@@ -47,7 +47,7 @@ public class Evidencija {
 
     }
 
-    private static void IspisPolaznika(HashMap<String,Polaznik> p) {
+    private static void IspisPolaznika(HashMap<String, Polaznik> p) {
 
         System.out.println("Lista polaznika :");
         List<Polaznik> polaznici = new ArrayList<>(p.values());
@@ -67,8 +67,7 @@ public class Evidencija {
     }
 
 
-
-    public static Polaznik UnosPolaznika(Scanner s, HashMap<String,Polaznik> p ) {
+    public static Polaznik UnosPolaznika(Scanner s, HashMap<String, Polaznik> p) {
         boolean ex = false;
         String email;
         System.out.print("Unesite Ime : ");
