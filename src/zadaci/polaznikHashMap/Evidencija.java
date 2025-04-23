@@ -70,7 +70,7 @@ public class Evidencija {
         for (String k : p.keySet()) {
             do {
                 if (k.equals(email)) {
-                    System.out.println("Email se koristi\nPonovite unos");
+                    System.out.println("Email se koristi Ponovite unos");
                     System.out.print("Unesite Email : ");
                     email = s.nextLine();
                 } else {
