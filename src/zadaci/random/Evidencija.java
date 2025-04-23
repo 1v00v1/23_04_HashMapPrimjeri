@@ -51,6 +51,7 @@ public class Evidencija {
 
         System.out.println("Lista polaznika :");
         List<Polaznik> polaznici = new ArrayList<>(p.values());
+        System.out.println(polaznici);
         System.out.println("-".repeat(30));
 
         System.out.println("Lista shuffle :");

@@ -20,7 +20,7 @@ public class Polaznik implements Comparable<Polaznik>{
         return
                 "ime= " + ime +
                 ", prezime= " + prezime +
-                ", email= " + email ;
+                ", email= " + email +"\n";
     }
 
     @Override
